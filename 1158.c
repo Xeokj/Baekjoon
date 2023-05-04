@@ -87,8 +87,10 @@ int Shift(List* plist, int K) {
 void Remove(List* plist) {
 	Node* rpos = plist->cur;
 	if (rpos == plist->tail) {	// tail을 삭제하는 경우
-		if (plist->tail == plist->tail->next)	// 큐에 원소가 단 하나만 남았을 때
+		if (plist->tail == plist->tail->next) {	// 큐에 원소가 단 하나만 남았을 때 (사실 이 경우는 노드를 또 추가하지 않을 것이기 때문에 이 문제에선 불필요함)
+			plist->head = NULL;
 			plist->tail = NULL;
+		}
 		else
 			plist->tail = plist->before;	// tail을 삭제하므로 tail의 위치를 옮겨줌
 	}
