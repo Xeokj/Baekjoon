@@ -12,26 +12,23 @@ int main() {
 		scanf("%d %d", &N, &find);
 		int* queue = (int*)calloc(N, sizeof(int));
 
-		int front = -1, rear = -1, cnt = 0;
+		int cur = -1, cnt = 0;
 		for (int i = 0; i < N; i++) {
 			scanf("%d", &queue[i]);
-			rear++;
 			prior[queue[i]]++;
 			if (queue[i] > max)
 				max = queue[i];
 		}
 
 		while (queue[find] != -1) {
-			front++;
+			cur++;	// 커서 한 칸 이동
 
-			// front와 rear가 배열의 범위를 초과하면 맨 앞으로 오도록
-			front %= N;
-			rear %= N;
-
-			// front가 가리키는 문서가 가장 중요도 높은 문서라 제거해야 할 때
-			if (queue[front] == max) {
+			// cur가 배열의 범위를 초과하면 맨 앞으로 오도록
+			cur %= N;
+			// cur가 가리키는 문서가 가장 중요도 높은 문서라 제거해야 할 때
+			if (queue[cur] == max) {
 				cnt++;
-				queue[front] = -1;
+				queue[cur] = -1;
 				prior[max]--;
 				
 				// 제거한 문서의 중요도와 같은 문서가 더이상 없을 때
@@ -39,9 +36,7 @@ int main() {
 					max--;
 					while (!prior[max]) max--;
 				}
-				continue;
 			}
-			rear++;
 		}
 		printf("%d\n", cnt);
 		free(queue);
