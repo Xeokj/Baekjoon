@@ -10,6 +10,7 @@ int main() {
 	string str;
 	cin >> str;
 
+	// 각각 맨 앞의 R, B의 개수, 맨 뒤의 R, B의 개수
 	int st_R = 0, st_B = 0, en_R = 0, en_B = 0;
 	if (str[0] == 'R') {
 		red++;	st_R++;
@@ -19,8 +20,9 @@ int main() {
 	}
 
 	for (int i = 1; i < N; i++) {
+		// 맨 앞 색과의 연속이 끊어지는 여부를 flag로 구분해주었다.
 		if (!flag) {
-			// 첫 공을 기준으로 지금까지 색이 바뀌지 않았을 경우
+			// flag = 0: 첫 공을 기준으로 지금까지 색이 바뀌지 않았을 경우
 			if (str[i] == str[0] && st_R) {
 				// 빨간색일 때
 				red++;	st_R++;
@@ -30,7 +32,7 @@ int main() {
 				blue++;	st_B++;
 			}
 			else {
-				// 색이 바뀐 경우
+				// flag = 1: 색이 바뀐 경우
 				if (str[i] == 'R') {
 					en_R++;	red++;
 				}
