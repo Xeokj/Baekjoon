@@ -17,8 +17,9 @@ int main() {
 		parent[i] = i;	// 부모를 자기 자신으로 초기화
 	}
 	for (i = 1; i <= N; i++) {
+		// 부모가 자기 자신인 것을 root로 하여 DFS로 자식들의 부모를 root로 만듦
 		if (parent[i] == i)
-			merge(i, i);	// 부모가 자기 자신인 것을 root로 하여 union find	
+			merge(i, i);
 	}
 	int start, flag = 0;
 	cin >> start;
