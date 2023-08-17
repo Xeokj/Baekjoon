@@ -57,6 +57,7 @@ void BFS() {
 			else if (board[dy][dx] && !broke) {
 				// 벽을 처음 부수는 경우
 				visited[y][x][1] = visited[y][x][0];
+				// 원래의 위치로 못 돌아가도록
 				visited[dy][dx][1] = visited[y][x][0] + 1;
 				q.push({ { dy,dx }, 1 });
 			}
