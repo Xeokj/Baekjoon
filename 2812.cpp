@@ -11,15 +11,9 @@ int main() {
 	int N, K, i;
 	cin >> N >> K >> input;
 	for (i = 0; i < N; i++) {
-		if (!K || s.empty()) {
-			s.push(input[i]);
-			continue;
-		}
-		while (input[i] > s.top()) {
+		while (K && !s.empty() && input[i] > s.top()) {
 			s.pop();
 			K--;
-			if (!K || s.empty())
-				break;
 		}
 		s.push(input[i]);
 	}
