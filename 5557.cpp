@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-// 백준 5557번: 1학년 (골드 5)
+// 백준 5557번: 1학년  (골드 5)
 long long dp[99][21];
 int arr[100];
 
