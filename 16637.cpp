@@ -48,7 +48,7 @@ void cal(int cur, int res) {
 				cal(cur + 4, res - tres);
 			else if (s[cur - 1] == '*')
 				cal(cur + 4, res * tres);
-		}	
+		}
 	}
 	// 괄호를 만들지 않는 경우
 	int num = s[cur] - '0';
