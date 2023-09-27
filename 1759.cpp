@@ -24,6 +24,7 @@ int main() {
 }
 
 void backtr(int cur, int n, int vowel, int conso) {
+	// 일단 L개의 문자열을 만든 후 조건에 부합하면 출력
 	if (n == L) {
 		if (!vowel || conso < 2)
 			return;	// 모음과 자음의 최소 개수를 부합하지 않은 경우
