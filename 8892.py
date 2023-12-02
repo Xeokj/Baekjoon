@@ -1,16 +1,20 @@
-# 1302.py
-N = int(input())
-books = {}
-for i in range(N):
-    name = input()
-    if name in books:
-        books[name] += 1
-    else:
-        books[name] = 1
-Max = 0
-sortedb = dict(sorted(books.items()))
-for i in sortedb:
-    if (sortedb[i]) > Max:
-        Max = sortedb[i]
-        ans = i
-print(ans)
+# 8892.py
+T = int(input())
+while T:
+    k = int(input())
+    arr = list()
+    for i in range(k):
+        arr.append(input())
+    flg = 0
+    for i in range(k):
+        for j in range(k):
+            if i == j: continue
+            org = arr[i] + arr[j]
+            if org[::-1] == org:
+                print(org)
+                flg = 1
+                break
+        if flg: break
+    if flg == 0:
+        print(0)
+    T -= 1
